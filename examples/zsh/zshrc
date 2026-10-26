@@ -1,0 +1,67 @@
+
+# Completado de Zsh
+fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
+autoload -Uz compinit
+compinit
+
+# Historial
+HISTSIZE=50000
+SAVEHIST=50000
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
+
+# Navegación inteligente
+eval "$(zoxide init zsh)"
+
+# Búsqueda interactiva
+source <(fzf --zsh)
+
+# Secretos (API keys, tokens): viven fuera del repo y de este archivo.
+# Crea ~/.zsh_secrets con tus exports y protégelo con: chmod 600 ~/.zsh_secrets
+[ -f "$HOME/.zsh_secrets" ] && source "$HOME/.zsh_secrets"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
+# Rutas de desarrollo
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
+
+# Sugerencias de comandos
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Aliases para lsd
+alias ls="eza --icons --group-directories-first"
+alias ll="eza -l --icons --group-directories-first"
+alias la="eza -la --icons --group-directories-first"
+alias lt="eza --tree --icons --group-directories-first"
+alias llt="eza -l --tree --icons --group-directories-first"
+
+# Navegación y utilidades
+alias ..="cd .."
+alias ...="cd ../.."
+alias ~="cd ~"
+alias cls="clear"
+
+alias reload="source ~/.zshrc"
+alias config-zsh="nvim ~/.zshrc"
+alias config-term="nvim $HOME/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty"
+
+alias projects="cd ~/Projects"
+alias cleanup="cd ~ && ncdu"
+# Prompt minimalista
+eval "$(starship init zsh)"
+
+# Syntax highlighting: siempre al final
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Iniciar tmux automáticamente en terminales interactivas
+if [[ -o interactive && -z "$TMUX" && -z "$SSH_CONNECTION" ]]; then
+  tmux new-session -A -s main
+fi
+
+# Knowledge system vault (~/kb/_system/README.md)
+export KB_ROOT="$HOME/kb"

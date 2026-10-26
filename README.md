@@ -57,6 +57,9 @@
 - [02. Actualizaciones](07-mantenimiento/02-actualizaciones.md) — Homebrew update/outdated, actualizaciones selectivas.
 - [03. Reglas de mantenimiento](07-mantenimiento/03-reglas.md) — Buenas prácticas para cambios futuros.
 
+### Ejemplos
+- [Archivos de configuración de referencia](examples/README.md) — Copia real (sin credenciales) de cada config y dónde va.
+
 ### 08. Estado de confirmación
 - [01. Confirmado](08-estado/01-confirmado.md) — Qué quedó verificado en la conversación.
 - [02. Pendiente](08-estado/02-pendiente.md) — Qué requiere verificación en la máquina local.
