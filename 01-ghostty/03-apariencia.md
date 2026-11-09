@@ -7,13 +7,13 @@
 Para hacer translúcido el fondo de Ghostty:
 
 ```ini
-background-opacity = 0.85
+background-opacity = 0.86
 ```
 
 | Valor | Efecto |
 |-------|--------|
 | `1.0` | Totalmente opaco (por defecto) |
-| `0.85` | Semi-transparente (recomendado inicial) |
+| `0.85` – `0.86` | Semi-transparente (valor en uso: `0.86`) |
 | `0.7` - `0.9` | Rango usual de uso |
 | `< 0.5` | Muy transparente, puede dificultar lectura |
 
@@ -44,15 +44,20 @@ Las siguientes opciones **causaron problemas en pruebas anteriores** y **no debe
 
 > **Regla:** Si no estás seguro de una opción, no la añadas. Prueba una a una y verifica.
 
-## Combinación recomendada (inicial)
+## Combinación en uso
 
 ```ini
-# Transparencia sutil
-background-opacity = 0.85
+theme = TokyoNight Night
+font-family = JetBrainsMono Nerd Font
+font-size = 13
 
-# Ocultar botones de ventana, mantener barra de título para arrastrar
+background-opacity = 0.86
+window-padding-x = 10
+window-padding-y = 8
 macos-window-buttons = hidden
 ```
+
+Se mantiene la barra de título (solo se ocultan los botones) para poder arrastrar la ventana.
 
 ## Probar cambios
 

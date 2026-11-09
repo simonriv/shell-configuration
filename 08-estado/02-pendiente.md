@@ -1,85 +1,43 @@
-# 08. Estado -- Pendiente de comprobar en el Mac
+# 08. Estado — Pendiente
 
-> **Seccion original:** 9.2 Pendiente de comprobar en el Mac
+> **Sección original:** 9.2 Pendiente de comprobar en el Mac
+>
+> Lo que se podía verificar leyendo archivos ya está en [01. Confirmado](01-confirmado.md). Aquí queda lo que requiere probarlo a mano o decidir.
 
-## Archivos de configuración (contenido exacto actual)
+## Requiere prueba manual
 
-- [ ] `~/.zshrc` — contenido completo actual
-- [ ] `~/.tmux.conf` — contenido completo actual
-- [ ] `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` — contenido completo actual
-- [ ] `~/.config/starship.toml` — preset aplicado y personalizaciones
-- [ ] `~/.config/nvim/lua/chadrc.lua` — configuración NvChad actual
-- [ ] `~/.config/nvim/lua/plugins/` — plugins personalizados actuales
+- [ ] **LSP en un proyecto Next.js real**: abrir un `.tsx`, ejecutar `:LspInfo` y confirmar qué clientes se adjuntan (hoy solo están habilitados `html` y `cssls`)
+- [ ] **Prettier con Conform**: no está configurado; decidir si se añade (ver [05-neovim-nvchad/07](../05-neovim-nvchad/07-conform-formateo.md))
+- [ ] **Transparencia de Neovim**: comprobar `toggle_transparency()` con el tema `ayu_dark` y Ghostty a 0.86
+- [ ] **Restauración de tmux**: cerrar el servidor (`tmux kill-server`) y comprobar que `tmux-continuum` restaura la sesión `main`
+- [ ] **Wattop**: comprobar si ya detecta todas las sesiones de terminal
 
-## Respaldos existentes
+## Decisiones abiertas
 
-- [ ] Nombres exactos de respaldos en `~/.config/backups/zsh/`
-- [ ] Respaldos de `.tmux.conf`, `nvim`, `ghostty` con fechas reales
+- [ ] Habilitar `vtsls`, `eslint`, `tailwindcss` y `jsonls` en `lua/configs/lspconfig.lua` (ya están instalados en Mason)
+- [ ] Mostrar o no `fastfetch` al iniciar (con el arranque automático de tmux hay que colocarlo con cuidado; ver [03-utilidades-terminal/04](../03-utilidades-terminal/04-fastfetch.md))
+- [ ] Mostrar el icono de rama en Starship (`[git_branch]` no incluye `$symbol` en su `format`)
+- [ ] Mover `export KB_ROOT` encima del bloque de arranque de tmux en `.zshrc`
 
-## Wattop
+## Respaldos
 
-- [ ] Método y comando exacto de instalación usado
-- [ ] Versión instalada y fuente (brew, cargo, binario, etc.)
-- [ ] Verificar si cumple expectativas de monitoreo
+- [ ] No hay respaldos fechados de `.tmux.conf`, `nvim`, Ghostty ni `~/.config/backups/zsh/`. Crear uno antes del próximo cambio (ver [07-mantenimiento/01](../07-mantenimiento/01-respaldos.md))
 
-## Utilidades instaladas actualmente
-
-- [ ] `fastfetch` — versión y config
-- [ ] `btop` — versión
-- [ ] `lazygit` — versión
-- [ ] `bat` — versión
-- [ ] `eza` — versión
-- [ ] `fzf` — versión y keybindings en Zsh
-- [ ] `zoxide` — versión y base de datos
-- [ ] `wattop` — versión
-- [ ] `tree-sitter` CLI — versión
-
-## Neovim / NvChad
-
-- [ ] Archivo `vim-be-good.lua` — ¿existe? ¿plugin instalado en Lazy?
-- [ ] **LSP activos reales** en proyecto TypeScript/Next.js:
-  - [ ] `vtsls` — cliente adjunto?
-  - [ ] `tailwindcss` — cliente adjunto?
-  - [ ] `eslint` — cliente adjunto?
-  - [ ] `html` / `cssls` / `jsonls` — clientes adjuntos?
-- [ ] `:LspInfo` en archivo `.tsx` real — output completo
-- [ ] `:checkhealth vim.lsp` — estado actual
-- [ ] `:Mason` — lista completa de paquetes instalados
-- [ ] `conform.nvim` — formatters configurados por filetype
-- [ ] Prettier — ¿en proyecto? ¿global? ¿funciona con Conform?
-
-## Atajos y opciones propuestos
-
-- [ ] Ghostty: ¿`background-opacity = 0.85` activo? ¿`macos-window-buttons = hidden` activo?
-- [ ] Zsh: ¿orden de carga correcto en `.zshrc`? ¿plugins cargados?
-- [ ] Starship: ¿preset Jetpack activo? ¿config personalizada?
-- [ ] tmux: ¿todos los keybindings del bloque consolidado presentes?
-- [ ] Neovim: ¿transparencia base46 funcional?
-
-## Cómo verificar eficientemente
+## Cómo volver a verificar
 
 ```bash
-# 1. Herramientas
-for cmd in fastfetch btop lazygit bat eza fzf zoxide wattop tree-sitter starship ghostty tmux nvim; do
-  command -v "$cmd" && echo "✅ $cmd" || echo "❌ $cmd"
-done
-
-# 2. Configs clave
-echo "=== .zshrc ==="; head -80 ~/.zshrc
-echo "=== .tmux.conf ==="; cat ~/.tmux.conf
-echo "=== Ghostty ==="; cat "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
-echo "=== Starship ==="; cat ~/.config/starship.toml
-
-# 3. Neovim health
-nvim --headless -c "checkhealth" -c "qa" 2>&1 | head -60
-
-# 4. Plugins NvChad
-ls ~/.config/nvim/lua/plugins/
-
-# 5. Mason
-nvim --headless -c "Mason" -c "qa" 2>&1 | head -30
+# Comparar la máquina con las copias del repo
+cd examples
+diff -u ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+diff -u zsh/zshrc ~/.zshrc            # difiere a propósito en config-term ($HOME)
+diff -u tmux/tmux.conf ~/.tmux.conf
+diff -u starship/starship.toml ~/.config/starship.toml
+diff -u fastfetch/config.jsonc ~/.config/fastfetch/config.jsonc
+diff -ru -x .git -x LICENSE -x README.md -x .DS_Store nvim ~/.config/nvim
 ```
+
+Si aparece alguna diferencia, actualiza la copia en `examples/` y el documento del tema correspondiente.
 
 ---
 
-> **Fin de la documentacion.** Para convertir esto en copia exacta de la maquina, compara cada seccion "Pendiente" con los archivos reales y actualiza la documentacion accordingly.
+> **Fin de la documentación.**

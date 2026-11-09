@@ -1,12 +1,12 @@
-# 05. Neovim y NvChad \u2014 Plugin vim-be-good
+# 05. Neovim y NvChad — Plugin vim-be-good
 
-> **Secci\u00f3n original:** 6.3 Plugin `vim-be-good`
+> **Sección original:** 6.3 Plugin `vim-be-good`
 
-## Qu\u00e9 es
+## Qué es
 
 Un **juego interactivo** dentro de Neovim para practicar movimientos de Vim (h, j, k, l, w, b, e, gg, G, etc.).
 
-## Instalaci\u00f3n (propuesta)
+## Instalación (propuesta)
 
 Crear archivo:
 
@@ -32,7 +32,7 @@ return {
    :Lazy sync
    ```
 
-2. Esperar a que termine la instalaci\u00f3n (aparece en la interfaz Lazy).
+2. Esperar a que termine la instalación (aparece en la interfaz Lazy).
 
 ## Jugar
 
@@ -44,12 +44,7 @@ Se abre una ventana con niveles progresivos. Completa cada reto para avanzar.
 
 ## Estado
 
-> **Esta instalaci\u00f3n se present\u00f3 como una propuesta.**
->
-> Verifica:
-> - \u00bfExiste el archivo `~/.config/nvim/lua/plugins/vim-be-good.lua`?
-> - \u00bfAparece en `:Lazy` como instalado?
-> - \u00bfFunciona `:VimBeGood`?
+> **No instalado.** En la configuración actual no existe `~/.config/nvim/lua/plugins/vim-be-good.lua` ni el plugin aparece en `~/.local/share/nvim/lazy/`. Es opcional: sigue los pasos de arriba si lo quieres.
 
 ## Notas
 

@@ -18,20 +18,15 @@ command -v wattop
 wattop --help
 ```
 
-## ⚠️ Estado de instalación
+## Instalación
 
-> **El comando exacto de instalación de Wattop no quedó confirmado en el historial disponible.**
+Instalado como **cask de Homebrew**:
 
-Posibles métodos (verificar cuál se usó):
-
-| Método | Comando (verificar) |
-|--------|---------------------|
-| Homebrew (si existe fórmula) | `brew install wattop` |
-| Homebrew (cask) | `brew install --cask wattop` |
-| Cargo (Rust) | `cargo install wattop` |
-| Go | `go install github.com/...` |
-| Binario directo | Descarga de GitHub Releases |
-| Compilación manual | `git clone && make/cargo build` |
+```bash
+brew install --cask wattop
+wattop --version
+# wattop v0.3.1-…
+```
 
 ## Comportamiento observado
 
@@ -41,9 +36,8 @@ Posibles métodos (verificar cuál se usó):
 
 ## Qué hacer
 
-1. **Verifica cómo lo instalaste** (revisa tu historial de shell: `history | grep wattop`).
-2. **Consulta la documentación del proyecto** (GitHub README) para confirmar uso y limitaciones.
-3. **Si no lo necesitas**, no es obligatorio para el entorno base.
+1. **Consulta la documentación del proyecto** (GitHub README) para confirmar uso y limitaciones.
+2. **Si no lo necesitas**, no es obligatorio para el entorno base.
 
 ## Alternativas de monitoreo
 

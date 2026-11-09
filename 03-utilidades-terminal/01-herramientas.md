@@ -13,7 +13,8 @@
 | `eza` | Listado de archivos moderno (reemplaza `ls`) | `eza --version` |
 | `fzf` | Búsqueda difusa (archivos, historial, etc.) | `fzf --version` |
 | `zoxide` | Navegación inteligente entre directorios | `zoxide --version` |
-| `wattop` | Monitor para cargas IA / Apple Silicon | `command -v wattop` |
+| `wattop` | Monitor para cargas IA / Apple Silicon | `wattop --version` |
+| `ncdu` | Uso de disco interactivo (alias `cleanup`) | `ncdu --version` |
 
 ## Descripción rápida de cada una
 
@@ -39,17 +40,19 @@
 
 ### eza
 - `ls` mejorado: colores, iconos (con Nerd Font), git status, árbol.
-- Alias recomendados:
+- Alias en uso (`~/.zshrc`):
   ```zsh
-  alias ls='eza'
-  alias ll='eza -l --git'
-  alias la='eza -la --git'
-  alias lt='eza --tree'
+  alias ls="eza --icons --group-directories-first"
+  alias ll="eza -l --icons --group-directories-first"
+  alias la="eza -la --icons --group-directories-first"
+  alias lt="eza --tree --icons --group-directories-first"
+  alias llt="eza -l --tree --icons --group-directories-first"
   ```
 
 ### fzf
 - Fuzzy finder universal.
 - Integración Zsh: `Ctrl+R` (historial), `Ctrl+T` (archivos), `Alt+C` (directorios).
+- `Tab` queda con el completado nativo de Zsh (ver [02-zsh/04](../02-zsh/04-configuracion-zshrc.md#tab-completado-nativo-en-lugar-de-fzf)).
 - Usable en scripts: `find . -type f | fzf`
 
 ### zoxide
@@ -60,12 +63,17 @@
 ### wattop
 - Monitor especializado para Apple Silicon.
 - Muestra: CPU, GPU, Neural Engine, memoria, consumo energético.
+- Instalado como cask: `brew install --cask wattop`.
 - **Nota:** En pruebas no mostraba todas las sesiones de terminal ni detectaba Pi como sesión identificable. Ver [03. Wattop](../03-utilidades-terminal/03-wattop.md).
+
+### ncdu
+- Analizador de uso de disco con interfaz de texto.
+- Alias `cleanup` → `cd ~ && ncdu`.
 
 ## Verificar cuáles están instaladas
 
 ```bash
-for cmd in fastfetch btop lazygit bat eza fzf zoxide wattop; do
+for cmd in fastfetch btop lazygit bat eza fzf zoxide wattop ncdu; do
   if command -v "$cmd" >/dev/null 2>&1; then
     printf '✅ %-12s %s\n' "$cmd" "$(command -v "$cmd")"
   else

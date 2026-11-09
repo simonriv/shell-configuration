@@ -30,8 +30,11 @@ echo $STARSHIP_SESSION_KEY
 # zoxide
 zoxide query ~
 
-# fzf keybindings
+# fzf keybindings (Ctrl+R, Ctrl+T, Alt+C)
 bindkey | grep fzf
+
+# Tab con completado nativo (no fzf)
+bindkey '^I'
 
 # Autosuggestions
 bindkey | grep autosuggest
@@ -51,6 +54,7 @@ command -v starship >/dev/null && echo "✅ starship" || echo "❌ starship"
 command -v zoxide >/dev/null && echo "✅ zoxide" || echo "❌ zoxide"
 command -v fzf >/dev/null && echo "✅ fzf" || echo "❌ fzf"
 command -v eza >/dev/null && echo "✅ eza" || echo "❌ eza"
+[[ -f ~/.zsh_secrets && $(stat -f %Lp ~/.zsh_secrets) == 600 ]] && echo "✅ ~/.zsh_secrets (600)" || echo "⚠️ ~/.zsh_secrets falta o no tiene permisos 600"
 
 echo "=== Plugins cargados ==="
 [[ -n $ZSH_AUTOSUGGEST_VERSION ]] && echo "✅ zsh-autosuggestions" || echo "⚠️ zsh-autosuggestions (no detectado)"

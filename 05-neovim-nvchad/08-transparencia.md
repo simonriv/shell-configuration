@@ -27,7 +27,7 @@ Dentro de Neovim:
 
 | Capa | Configuración | Efecto |
 |------|---------------|--------|
-| **Ghostty** | `background-opacity = 0.85` | Fondo de TODA la ventana terminal |
+| **Ghostty** | `background-opacity = 0.86` | Fondo de TODA la ventana terminal |
 | **Neovim (base46)** | `toggle_transparency()` | Fondo solo del editor (buffers, UI) |
 
 > Pueden combinarse: Ghostty semi-transparente + Neovim transparente = efecto "vidrio" total.
@@ -38,8 +38,8 @@ En `lua/chadrc.lua`:
 
 ```lua
 M.base46 = {
-  theme = "tud tema",
-  transparency = true,  -- true = transparente por defecto
+  theme = "ayu_dark",   -- tema en uso
+  transparency = true,  -- true = transparente por defecto (hoy no está activado)
 }
 ```
 

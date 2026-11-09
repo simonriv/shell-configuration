@@ -15,11 +15,10 @@ eval "$(zoxide init zsh)"
 
 # Búsqueda interactiva
 source <(fzf --zsh)
+bindkey '^I' expand-or-complete
 
-# Secretos (API keys, tokens): viven fuera del repo y de este archivo.
-# Crea ~/.zsh_secrets con tus exports y protégelo con: chmod 600 ~/.zsh_secrets
+# Secretos (API keys, tokens): viven en ~/.zsh_secrets (chmod 600)
 [ -f "$HOME/.zsh_secrets" ] && source "$HOME/.zsh_secrets"
-
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"

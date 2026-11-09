@@ -66,9 +66,38 @@ tmux display-message -p '#S:#I.#P #{pane_current_path}'
 |---------|-------------|
 | Atajos no funcionan | `tmux list-keys | grep tu-atajo` — ¿está cargado? |
 | Prefijo no responde | `tmux show-options -g prefix` — ¿es `C-Space`? |
-| Paneles no dividen | `tmux list-keys | grep split-window` |
+| `v` no crea panel | `tmux list-keys | grep split-window` |
+| Sesiones no se restauran | `ls ~/.tmux/plugins` — ¿están `tpm`, `tmux-resurrect`, `tmux-continuum`? Si no: `prefijo + I` |
 | Ratón no funciona | `tmux show-options -g mouse` — ¿está `on`? |
 | Config no recarga | ¿Editaste `~/.tmux.conf`? ¿Ejecutaste `source-file`? |
+
+## Sesión `main` automática
+
+`~/.zshrc` ejecuta `tmux new-session -A -s main` en cada shell interactiva fuera de tmux (ver [02-zsh/04](../02-zsh/04-configuracion-zshrc.md#arranque-automático-de-tmux)). Abrir Ghostty te conecta a la sesión `main`; si no existe, la crea.
+
+## Guardar y restaurar sesiones (tmux-resurrect + tmux-continuum)
+
+| Acción | Secuencia |
+|--------|-----------|
+| Guardar sesiones manualmente | `Ctrl+Space` → `Ctrl+s` |
+| Restaurar manualmente | `Ctrl+Space` → `Ctrl+r` |
+| Guardado automático | Cada 15 min (`@continuum-save-interval '15'`) |
+| Restauración automática | Al arrancar el servidor de tmux (`@continuum-restore 'on'`) |
+
+`@resurrect-capture-pane-contents 'on'` guarda también el contenido visible de cada panel.
+
+### Plugins (TPM)
+
+```bash
+# Instalar TPM una sola vez
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+| Acción | Secuencia |
+|--------|-----------|
+| Instalar plugins declarados | `Ctrl+Space` → `I` |
+| Actualizar plugins | `Ctrl+Space` → `U` |
+| Desinstalar los no declarados | `Ctrl+Space` → `Alt+u` |
 
 ## Ratón (habilitado en config)
 

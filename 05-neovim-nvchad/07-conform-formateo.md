@@ -19,12 +19,34 @@ Formateador asíncrono para Neovim. Se integra con LSP y herramientas externas (
 npx prettier --version
 ```
 
-## Configurar Conform (en lua/chadrc.lua o lua/plugins/conform.lua)
+## Configuración actual (`lua/configs/conform.lua`)
 
 ```lua
-return {
-  "stevearc/conform.nvim",
-  opts = {
+local options = {
+  formatters_by_ft = {
+    lua = { "stylua" },
+    -- css = { "prettier" },
+    -- html = { "prettier" },
+  },
+
+  -- format_on_save = {
+  --   -- These options will be passed to conform.format()
+  --   timeout_ms = 500,
+  --   lsp_fallback = true,
+  -- },
+}
+
+return options
+```
+
+Solo formatea Lua con `stylua`; `format_on_save` está desactivado. `lua/plugins/init.lua` carga este archivo con `opts = require "configs.conform"`.
+
+## Ampliar a proyectos JS/TS (propuesta)
+
+Sustituye `formatters_by_ft` en `lua/configs/conform.lua`:
+
+```lua
+local options = {
     formatters_by_ft = {
       lua = { "stylua" },
       javascript = { "prettier" },
@@ -40,16 +62,17 @@ return {
       timeout_ms = 500,
       lsp_fallback = true,
     },
-  },
 }
+
+return options
 ```
 
 ## Atajos útiles
 
 | Acción | Comando |
 |--------|---------|
-| Formatear buffer actual | `:ConformInfo` |
-| Formatear rango visual | `:ConformInfo` (en modo visual) |
+| Formatear buffer actual | `Space` → `f` → `m` (mapeo de NvChad) |
+| Formatear con comando | `:lua require("conform").format()` |
 | Ver formatters configurados | `:ConformInfo` |
 
 ## Notas

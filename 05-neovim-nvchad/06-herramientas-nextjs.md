@@ -18,9 +18,7 @@
 
 ## Estado
 
-> **El estado final de instalacion y configuracion de todos estos componentes NO quedo confirmado.**
->
-> Instala y configura solo los que necesites, usando los nombres que muestre TU version de Mason/NvChad.
+> **Todos los paquetes Mason de la tabla están instalados**, pero solo `html` y `cssls` están habilitados como LSP. Para usar vtsls, eslint, tailwindcss y jsonls en proyectos Next.js hay que añadirlos a `lua/configs/lspconfig.lua` (ver abajo). Detalle en [05. Mason y servidores LSP](05-mason-lsp.md).
 
 ## Instalacion via Mason
 
@@ -29,16 +27,13 @@
 3. Instala con `i` sobre el paquete
 4. Verifica en `:Mason` que aparezca "Installed"
 
-## Configurar en NvChad (lua/chadrc.lua)
+## Configurar en NvChad (lua/configs/lspconfig.lua)
 
 ```lua
-M.lsp = {
-  servers = {
-    "cssls", "html", "lua_ls",
-    "vtsls", "tailwindcss", "eslint",
-    "jsonls"
-  },
-}
+require("nvchad.configs.lspconfig").defaults()
+
+local servers = { "html", "cssls", "vtsls", "tailwindcss", "eslint", "jsonls" }
+vim.lsp.enable(servers)
 ```
 
 ## Prettier

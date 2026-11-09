@@ -1,6 +1,6 @@
 # Ejemplos de configuración
 
-Copia real de los archivos de configuración de la máquina de referencia (macOS, Apple Silicon), tomada el 2026-10-26. Sirve para ver cómo queda cada archivo una vez aplicada la guía.
+Copia real de los archivos de configuración de la máquina de referencia (macOS, Apple Silicon), tomada el 2026-10-26 y actualizada el 2026-11-09. Sirve para ver cómo queda cada archivo una vez aplicada la guía.
 
 > **Sin credenciales:** las API keys se retiraron de `zshrc` y se sustituyeron por la carga de `~/.zsh_secrets` (plantilla en `zsh/zsh_secrets.example`). Las rutas con nombre de usuario se cambiaron por `$HOME`.
 

@@ -6,24 +6,30 @@
 
 Gestor de paquetes para LSP servers, linters, formatters, DAPs. Interfaz: :Mason
 
-## Estado observado
+## Estado actual
 
-| Servidor | En Mason | Cliente LSP activo |
-|----------|----------|-------------------|
-| vtsls | Instalado | No confirmado |
-| astro-language-server | Instalado | No confirmado |
-| cssls | Instalado | Habilitado |
-| html | Instalado | Habilitado |
-| lua_ls | Instalado | Habilitado |
+Paquetes en `~/.local/share/nvim/mason/packages/`:
+
+| Paquete Mason | Nombre LSP | Habilitado en `lspconfig.lua` |
+|---------------|------------|-------------------------------|
+| html-lsp | html | ✅ |
+| css-lsp | cssls | ✅ |
+| vtsls | vtsls | ❌ |
+| eslint-lsp | eslint | ❌ |
+| tailwindcss-language-server | tailwindcss | ❌ |
+| json-lsp | jsonls | ❌ |
+| lua-language-server | lua_ls | ❌ (lo usa NvChad para su propia config) |
+| astro-language-server | astro | ❌ |
+| stylua | — (formatter) | Usado por Conform |
 
 ## ADVERTENCIA: Distincion clave
 
 > **Tener un servidor instalado en Mason NO ES IGUAL a que Neovim lo haya configurado o iniciado.**
 >
-> - Mason: "instalado" = binario descargado en ~/.local/share/mason/
+> - Mason: "instalado" = binario descargado en ~/.local/share/nvim/mason/
 > - LSP client: "activo" = Neovim lo adjunta a buffers segun filetype y config
 >
-> En :checkhealth vim.lsp solo aparecian cssls, html, lua_ls como configuraciones habilitadas. vtsls y astro no tenian clientes activos.
+> Hoy solo `html` y `cssls` están en `vim.lsp.enable(...)`. vtsls, eslint, tailwindcss, jsonls y astro están instalados pero **no se adjuntan** a ningún buffer hasta añadirlos a la lista.
 
 ## Verificar en proyecto real
 
@@ -61,17 +67,25 @@ Dentro de Neovim, abre un archivo .ts / .tsx real:
 
 ## Configurar LSP en NvChad
 
-En lua/chadrc.lua (seccion lsp):
+En NvChad v2.5 los servidores se activan en `lua/configs/lspconfig.lua` (lo carga `lua/plugins/init.lua`). Configuración actual:
 
 ```lua
-M.lsp = {
-  servers = { "cssls", "html", "lua_ls", "vtsls", "tailwindcss", "eslint" },
-  -- configuracion extra por servidor:
-  -- config = {
-  --   vtsls = { settings = { ... } },
-  -- }
-}
+require("nvchad.configs.lspconfig").defaults()
+
+local servers = { "html", "cssls" }
+vim.lsp.enable(servers)
+
+-- read :h vim.lsp.config for changing options of lsp servers
 ```
+
+Para añadir servidores, amplía la lista con los **nombres LSP** (no los de Mason):
+
+```lua
+local servers = { "html", "cssls", "lua_ls", "vtsls", "tailwindcss", "eslint", "jsonls" }
+vim.lsp.enable(servers)
+```
+
+> `M.lsp = { servers = ... }` en `chadrc.lua` era la API de versiones anteriores de NvChad; en v2.5 no tiene efecto.
 
 Luego: :LspRestart o reinicia Neovim.
 

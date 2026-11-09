@@ -12,7 +12,7 @@ brew install tmux
 
 ```bash
 tmux -V
-# Debe mostrar versión 3.x (ej. tmux 3.5a)
+# Debe mostrar versión 3.2 o superior (entorno de referencia: tmux 3.8)
 
 command -v tmux
 # Debe mostrar /opt/homebrew/bin/tmux (Apple Silicon)

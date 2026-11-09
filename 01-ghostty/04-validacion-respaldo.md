@@ -27,13 +27,25 @@ cat "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 
 ## Lista de opciones conocidas usadas en este entorno
 
-| Opción | Valor ejemplo | Descripción |
-|--------|---------------|-------------|
-| `background-opacity` | `0.85` | Transparencia del fondo |
+| Opción | Valor en uso | Descripción |
+|--------|--------------|-------------|
+| `theme` | `TokyoNight Night` | Esquema de colores |
+| `font-family` | `JetBrainsMono Nerd Font` | Fuente (requiere Nerd Font instalada) |
+| `font-size` | `13` | Tamaño de fuente en puntos |
+| `background-opacity` | `0.86` | Transparencia del fondo |
+| `window-padding-x` / `window-padding-y` | `10` / `8` | Margen interior |
+| `window-inherit-working-directory` | `true` | Abrir en el directorio actual |
 | `macos-window-buttons` | `hidden` | Oculta botones de ventana |
-| `macos-titlebar-style` | `hidden` | Oculta barra de título completa |
-| `font-family` | `"JetBrainsMono Nerd Font"` | Fuente (requiere Nerd Font instalada) |
-| `font-size` | `14` | Tamaño de fuente en puntos |
+| `window-save-state` | `always` | Restaura ventanas, tabs y divisiones |
+| `keybind` | ver [02. Configuración](02-configuracion.md#divisiones-nativas-de-ghostty) | Divisiones y navegación |
+
+> `macos-titlebar-style = hidden` es válida pero **no** está en uso.
+
+Para validar la sintaxis sin abrir una ventana:
+
+```bash
+ghostty +validate-config
+```
 
 ## Buenas prácticas
 

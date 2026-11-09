@@ -1,8 +1,8 @@
 # 05. Neovim y NvChad — Conceptos y atajos
 
-> **Secci\u00f3n original:** 6.1 Conceptos b\u00e1sicos y atajos
+> **Sección original:** 6.1 Conceptos básicos y atajos
 
-## Tecla l\u00edder (Leader)
+## Tecla líder (Leader)
 
 En NvChad: **`Space`** (barra espaciadora)
 
@@ -10,7 +10,7 @@ En NvChad: **`Space`** (barra espaciadora)
 
 ## Atajos principales
 
-| Acci\u00f3n | Atajo / Comando |
+| Acción | Atajo / Comando |
 |-----------|-----------------|
 | Abrir Neovim en directorio actual | `nvim .` |
 | Explorador de archivos (nvim-tree) | `Ctrl + N` |
@@ -22,6 +22,9 @@ En NvChad: **`Space`** (barra espaciadora)
 | Sincronizar plugins | `:Lazy sync` |
 | Ver mensajes recientes | `:messages` |
 | Comprobar salud de Neovim | `:checkhealth` |
+| Modo comando (`mappings.lua`) | `;` (equivale a `:`) |
+| Salir de inserción (`mappings.lua`) | `jk` (equivale a `Esc`) |
+| Formatear archivo (Conform) | `Space` → `f` → `m` |
 
 ## Secuencias de Telescope (buscar)
 
@@ -44,18 +47,18 @@ Space f g  → git files
 | `:Lazy clean` | Elimina plugins no declarados |
 | `:Lazy profile` | Perfila tiempo de carga |
 
-## Salud y diagn\u00f3stico
+## Salud y diagnóstico
 
 ```vim
 :checkhealth           " Chequeo general
-:checkhealth nvim-treesitter   " Treesitter espec\u00edfico
-:checkhealth vim.lsp   " LSP espec\u00edfico
+:checkhealth nvim-treesitter   " Treesitter específico
+:checkhealth vim.lsp   " LSP específico
 :messages              " Log de errores/avisos recientes
 ```
 
-## Archivos de configuraci\u00f3n clave
+## Archivos de configuración clave
 
-| Archivo | Prop\u00f3sito |
+| Archivo | Propósito |
 |---------|----------|
 | `~/.config/nvim/lua/plugins/*.lua` | Plugins personalizados |
 | `~/.config/nvim/lua/chadrc.lua` | Config principal NvChad (tema, UI) |
@@ -63,4 +66,4 @@ Space f g  → git files
 
 ---
 
-> **Siguiente paso:** [02. Estructura de configuraci\u00f3n](../05-neovim-nvchad/02-estructura-configuracion.md)
+> **Siguiente paso:** [02. Estructura de configuración](../05-neovim-nvchad/02-estructura-configuracion.md)

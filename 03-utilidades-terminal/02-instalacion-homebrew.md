@@ -7,7 +7,8 @@
 ### Instalar todo el conjunto (recomendado inicial)
 
 ```bash
-brew install btop lazygit bat eza fzf zoxide fastfetch
+brew install btop lazygit bat eza fzf zoxide fastfetch ncdu
+brew install --cask wattop
 ```
 
 ### Instalar individualmente
@@ -20,11 +21,15 @@ brew install eza         # ls mejorado
 brew install fzf         # Fuzzy finder
 brew install zoxide      # Navegación inteligente
 brew install fastfetch   # System info
+brew install ncdu        # Uso de disco (alias cleanup)
+brew install --cask wattop  # Monitor Apple Silicon
 ```
 
 ## Post-instalación de fzf (importante)
 
-Si instalas `fzf` con Homebrew, **ejecuta el script de integración** para keybindings y completion en Zsh:
+**En uso:** `source <(fzf --zsh)` en `.zshrc` (fzf >= 0.48), sin script de instalación. Ver [04. Configuración de .zshrc](../02-zsh/04-configuracion-zshrc.md).
+
+Alternativa para versiones antiguas de fzf, con el script de integración:
 
 ```bash
 # Opción 1: Script interactivo (recomendado)
@@ -34,7 +39,6 @@ Si instalas `fzf` con Homebrew, **ejecuta el script de integración** para keybi
 /opt/homebrew/opt/fzf/install --key-bindings --completion --no-update-rc
 ```
 
-> **Alternativa moderna (fzf >= 0.48):** Usa `eval "$(fzf --zsh)"` en tu `.zshrc` (ver [04. Configuración de .zshrc](../02-zsh/04-configuracion-zshrc.md)).
 
 ## Verificar instalación
 
@@ -47,13 +51,14 @@ eza --version
 fzf --version
 zoxide --version
 fastfetch --version
+ncdu --version
+wattop --version
 ```
 
 ## Notas importantes
 
 - **Homebrew no reinstala** si ya está presente; dice "already installed".
 - **No hace falta** reinstalar todo el conjunto si solo falta uno.
-- **Wattop** no se incluye aquí porque su método de instalación no quedó confirmado (ver [03. Wattop](../03-utilidades-terminal/03-wattop.md)).
 - **Nerd Fonts** para iconos en eza/lazygit/Starship:
   ```bash
   brew install --cask font-jetbrains-mono-nerd-font

@@ -6,7 +6,7 @@
 
 | Componente | Propósito | Estado |
 |------------|-----------|--------|
-| **Starship** | Prompt rápido y configurable | ✅ Usado (preset Jetpack) |
+| **Starship** | Prompt rápido y configurable | ✅ Usado (Jetpack + iconos Nerd Font) |
 | **zoxide** | Navegación inteligente (`z` en lugar de `cd`) | ✅ Instalado |
 | **fzf** | Búsqueda difusa en historial/archivos | ✅ Instalado |
 | **eza** | `ls` mejorado con colores, iconos, git | ✅ Instalado |
@@ -24,16 +24,21 @@
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                    Zsh (.zshrc)                      │
+│                    Zsh (.zshrc)                     │
 ├─────────────────────────────────────────────────────┤
-│  1. compinit + zsh-completions                       │
-│  2. zoxide init                                      │
-│  3. fzf init (keybindings + completion)             │
-│  4. starship init (prompt)                           │
-│  5. zsh-autosuggestions (al final)                   │
-│  6. zsh-syntax-highlighting (¡AL FINAL!)            │
+│  1. zsh-completions (fpath) + compinit              │
+│  2. zoxide init                                     │
+│  3. fzf --zsh  + Tab nativo (expand-or-complete)    │
+│  4. ~/.zsh_secrets y PATH de desarrollo             │
+│  5. zsh-autosuggestions                             │
+│  6. alias                                           │
+│  7. starship init (prompt)                          │
+│  8. zsh-syntax-highlighting (¡AL FINAL!)            │
+│  9. arranque automático de tmux                     │
 └─────────────────────────────────────────────────────┘
 ```
+
+Detalle completo en [04. Configuración de .zshrc](04-configuracion-zshrc.md).
 
 > **Orden crítico:** `zsh-syntax-highlighting` **debe cargarse al final** para funcionar correctamente.
 
@@ -41,7 +46,7 @@
 
 ### Starship
 - Prompt escrito en Rust, configurable con TOML.
-- Preset **Jetpack** elegido por ser compacto e informativo.
+- Preset **Jetpack** como base, con iconos Nerd Font ([05. Starship](05-starship.md)).
 - Config: `~/.config/starship.toml`
 
 ### zoxide
@@ -52,10 +57,11 @@
 ### fzf
 - Fuzzy finder para archivos, historial, procesos.
 - Atajos útiles: `Ctrl+R` (historial), `Ctrl+T` (archivos), `Alt+C` (directorios).
+- `Tab` se devuelve al completado nativo de Zsh, así que `**<Tab>` no abre fzf.
 
 ### eza
 - Reemplazo moderno de `ls`.
-- Alias comunes: `alias ls='eza'`, `alias ll='eza -l'`, `alias la='eza -la'`.
+- Alias en uso: `ls`, `ll`, `la`, `lt` (árbol) y `llt`, todos con `--icons --group-directories-first`.
 
 ### Plugins Zsh (Homebrew)
 - Se instalan en `/opt/homebrew/share/` (Apple Silicon).

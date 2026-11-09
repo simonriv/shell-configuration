@@ -15,14 +15,14 @@ bind C-Space send-prefix # Permitir enviar Ctrl+Space a apps anidadas
 
 1. Pulsa **`Ctrl + Space`** (mantén Ctrl, pulsa Space, suelta ambas)
 2. Suelta las teclas
-3. Pulsa la **tecla de acción** (ej: `|`, `-`, flecha, `d`, `c`, etc.)
+3. Pulsa la **tecla de acción** (ej: `v`, flecha, `d`, `c`, etc.)
 
 ## Ejemplos
 
 | Acción | Secuencia |
 |--------|-----------|
-| Dividir vertical | `Ctrl+Space` → soltar → `|` |
-| Dividir horizontal | `Ctrl+Space` → soltar → `-` |
+| Nuevo panel en mosaico | `Ctrl+Space` → soltar → `v` |
+| Cambiar distribución | `Ctrl+Space` → soltar → `Space` |
 | Panel izquierda | `Ctrl+Space` → soltar → `←` |
 | Panel derecha | `Ctrl+Space` → soltar → `→` |
 | Desconectar sesión | `Ctrl+Space` → soltar → `d` |

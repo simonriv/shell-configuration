@@ -6,10 +6,10 @@
 
 ```tmux
 # ──────────────────────────────────────────────
-# DIVIDIR PANELES
+# CREAR PANELES (división automática en mosaico)
 # ──────────────────────────────────────────────
-bind | split-window -h   # Dividir verticalmente (paneles lado a lado)
-bind - split-window -v   # Dividir horizontalmente (paneles arriba/abajo)
+# Crea un panel en el directorio actual y reorganiza todos en mosaico
+bind v split-window -c "#{pane_current_path}" \; select-layout tiled
 
 # ──────────────────────────────────────────────
 # NAVEGAR ENTRE PANELES (prefijo + flechas directas)
@@ -30,14 +30,19 @@ bind -r S-Down  resize-pane -D 2  # Disminuir altura
 
 ## Uso práctico
 
-### Dividir paneles
+### Crear paneles
 
 | Acción | Secuencia | Resultado |
 |--------|-----------|-----------|
-| Vertical (lado a lado) | `Ctrl+Space` → `|` | Dos paneles, 50% cada uno |
-| Horizontal (arriba/abajo) | `Ctrl+Space` → `-` | Dos paneles, 50% cada uno |
+| Nuevo panel | `Ctrl+Space` → `v` | Divide el panel actual y reorganiza **todos** en mosaico (`tiled`) |
+| División vertical clásica | `Ctrl+Space` → `%` | Atajo integrado de tmux (lado a lado) |
+| División horizontal clásica | `Ctrl+Space` → `"` | Atajo integrado de tmux (arriba/abajo) |
 
-> **Nota:** `-h` = *horizontal split* = division vertical (lado a lado). `-v` = *vertical split* = división horizontal (arriba/abajo). La nomenclatura de tmux se refiere a **dónde cae la línea divisoria**.
+- El panel nuevo abre en el **mismo directorio** que el actual (`-c "#{pane_current_path}"`).
+- Con `v` no hace falta elegir orientación: tras cada panel nuevo, tmux reparte el espacio en una cuadrícula de paneles iguales.
+- Para otra distribución después de crear paneles: `Ctrl+Space` → `Space` (ver [04. Layouts](04-layouts.md)).
+
+> **Cambio respecto a la configuración anterior:** antes se usaban `|` (`split-window -h`) y `-` (`split-window -v`). Ya no están en `~/.tmux.conf`.
 
 ### Navegar entre paneles
 

@@ -2,6 +2,10 @@
 
 > **Sección original:** 5.6 Cambiar distribución
 
+## Mosaico automático al crear paneles
+
+`Ctrl+Space` → `v` crea un panel y aplica `select-layout tiled` (ver [03. Paneles](03-paneles.md)). El atajo de abajo sirve para cambiar de distribución después.
+
 ## Recorrer layouts predefinidos
 
 ```tmux

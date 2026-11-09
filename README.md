@@ -13,16 +13,16 @@
 
 ### 01. Ghostty (Terminal)
 - [01. Instalación](01-ghostty/01-instalacion.md) — Instalar con Homebrew.
-- [02. Configuración](01-ghostty/02-configuracion.md) — Ubicación y edición del archivo `config.ghostty`.
-- [03. Apariencia](01-ghostty/03-apariencia.md) — Transparencia, barra de título y botones de ventana.
+- [02. Configuración](01-ghostty/02-configuracion.md) — Ubicación, configuración actual y divisiones nativas.
+- [03. Apariencia](01-ghostty/03-apariencia.md) — Tema, fuente, transparencia y botones de ventana.
 - [04. Validación y respaldo](01-ghostty/04-validacion-respaldo.md) — Respaldos fechados y verificación de opciones activas.
 
 ### 02. Zsh (Shell)
 - [01. Respaldos y limpieza](02-zsh/01-respaldos-limpieza.md) — Backup de archivos de configuración existentes.
 - [02. Componentes del entorno](02-zsh/02-componentes.md) — Starship, zoxide, fzf, eza, plugins de Zsh.
 - [03. Verificación de instalación](02-zsh/03-verificacion-instalacion.md) — Comandos para comprobar qué está instalado.
-- [04. Configuración de .zshrc](02-zsh/04-configuracion-zshrc.md) — Orden de carga recomendado y ejemplo orientativo.
-- [05. Starship (preset Jetpack)](02-zsh/05-starship.md) — Configuración y verificación del prompt.
+- [04. Configuración de .zshrc](02-zsh/04-configuracion-zshrc.md) — Orden de carga, archivo actual, Tab nativo, secretos y arranque de tmux.
+- [05. Starship (preset Jetpack)](02-zsh/05-starship.md) — Jetpack con iconos Nerd Font.
 - [06. Recarga y verificación](02-zsh/06-recarga-verificacion.md) — `source ~/.zshrc` y comprobación de sintaxis.
 
 ### 03. Utilidades de terminal
@@ -34,17 +34,17 @@
 ### 04. tmux (Multiplexor)
 - [01. Instalación](04-tmux/01-instalacion.md) — Instalar y comprobar versión.
 - [02. Prefijo personalizado](04-tmux/02-prefijo.md) — Ctrl + Space como prefijo.
-- [03. Paneles](04-tmux/03-paneles.md) — Dividir, navegar y redimensionar paneles.
+- [03. Paneles](04-tmux/03-paneles.md) — Panel en mosaico con `v`, navegar y redimensionar.
 - [04. Layouts](04-tmux/04-layouts.md) — Recorrer distribuciones con prefijo + Space.
-- [05. Recarga y diagnóstico](04-tmux/05-recarga-diagnostico.md) — Recargar config, listar atajos, gestionar sesiones.
-- [06. Configuración consolidada](04-tmux/06-configuracion-consolidada.md) — Bloque completo de `~/.tmux.conf` conocido.
+- [05. Recarga y diagnóstico](04-tmux/05-recarga-diagnostico.md) — Recargar config, sesiones, resurrect/continuum y TPM.
+- [06. Configuración consolidada](04-tmux/06-configuracion-consolidada.md) — Copia exacta de `~/.tmux.conf`.
 
 ### 05. Neovim y NvChad
 - [01. Conceptos y atajos](05-neovim-nvchad/01-conceptos-atajos.md) — Tecla líder, atajos principales, comandos útiles.
-- [02. Estructura de configuración](05-neovim-nvchad/02-estructura-configuracion.md) — Carpeta `~/.config/nvim/` y cómo inspeccionarla.
+- [02. Estructura de configuración](05-neovim-nvchad/02-estructura-configuracion.md) — Árbol real de `~/.config/nvim/` y atajos propios.
 - [03. Plugin vim-be-good](05-neovim-nvchad/03-plugin-vim-be-good.md) — Juego para practicar movimientos de Vim.
 - [04. Tree-sitter](05-neovim-nvchad/04-treesitter.md) — Parsers instalados, CLI, health check.
-- [05. Mason y servidores LSP](05-neovim-nvchad/05-mason-lsp.md) — Estado de vtsls, astro, cssls, html, lua_ls.
+- [05. Mason y servidores LSP](05-neovim-nvchad/05-mason-lsp.md) — Paquetes instalados y LSP habilitados.
 - [06. Herramientas para Next.js](05-neovim-nvchad/06-herramientas-nextjs.md) — vtsls, eslint, tailwind, prettier, lazygit.
 - [07. Conform y formateo](05-neovim-nvchad/07-conform-formateo.md) — Formateo con conform.nvim, stylua, prettier.
 - [08. Transparencia en Neovim](05-neovim-nvchad/08-transparencia.md) — Toggle de transparencia independiente de Ghostty.
@@ -61,8 +61,8 @@
 - [Archivos de configuración de referencia](examples/README.md) — Copia real (sin credenciales) de cada config y dónde va.
 
 ### 08. Estado de confirmación
-- [01. Confirmado](08-estado/01-confirmado.md) — Qué quedó verificado en la conversación.
-- [02. Pendiente](08-estado/02-pendiente.md) — Qué requiere verificación en la máquina local.
+- [01. Confirmado](08-estado/01-confirmado.md) — Qué está verificado contra la máquina (2026-11-09).
+- [02. Pendiente](08-estado/02-pendiente.md) — Pruebas manuales y decisiones abiertas.
 
 ---
 
@@ -72,7 +72,7 @@
 2. **Sigue el orden numérico** de las carpetas (01 → 08) para una instalación completa.
 3. **Cada archivo es independiente** — puedes consultar solo lo que necesites.
 4. **Antes de editar cualquier configuración**, lee `07-mantenimiento/01-respaldos.md`.
-4. **Consulta `08-estado/02-pendiente.md`** para saber qué verificar en tu máquina actual.
+5. **Consulta `08-estado/02-pendiente.md`** para saber qué verificar en tu máquina actual.
 
 ---
 

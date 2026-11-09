@@ -1,19 +1,19 @@
-# 05. Neovim y NvChad \u2014 Tree-sitter
+# 05. Neovim y NvChad — Tree-sitter
 
-> **Secci\u00f3n original:** 6.4 Tree-sitter
+> **Sección original:** 6.4 Tree-sitter
 
-## Qu\u00e9 es
+## Qué es
 
-Tree-sitter es el motor de parsing incremental que usa Neovim para resaltado de sintaxis, indentaci\u00f3n, navegaci\u00f3n de c\u00f3digo, etc.
+Tree-sitter es el motor de parsing incremental que usa Neovim para resaltado de sintaxis, indentación, navegación de código, etc.
 
 ## CLI tree-sitter
 
 ```bash
-# Verificar instalaci\u00f3n
+# Verificar instalación
 tree-sitter --version
 command -v tree-sitter
 
-# Ubicaci\u00f3n habitual (Apple Silicon + Homebrew)
+# Ubicación habitual (Apple Silicon + Homebrew)
 /opt/homebrew/bin/tree-sitter
 ```
 
@@ -21,16 +21,16 @@ command -v tree-sitter
 
 | Parser | Estado |
 |--------|--------|
-| bash | \u2705 |
-| css | \u2705 |
-| html | \u2705 |
-| javascript | \u2705 |
-| json | \u2705 |
-| lua | \u2705 |
-| markdown | \u2705 |
-| markdown_inline | \u2705 |
-| tsx | \u2705 |
-| typescript | \u2705 |
+| bash | ✅ |
+| css | ✅ |
+| html | ✅ |
+| javascript | ✅ |
+| json | ✅ |
+| lua | ✅ |
+| markdown | ✅ |
+| markdown_inline | ✅ |
+| tsx | ✅ |
+| typescript | ✅ |
 
 ## Health check en Neovim
 
@@ -41,8 +41,8 @@ command -v tree-sitter
 ### Salida esperada (resumen)
 
 - **OK**: Parsers instalados y funcionando
-- **WARN**: `jsonc` parser no soportado en esa configuraci\u00f3n (no es un fallo general)
-- **ERROR previo**: `ENOENT` no encontraba ejecutable `tree-sitter` \u2192 resuelto tras instalar CLI
+- **WARN**: `jsonc` parser no soportado en esa configuración (no es un fallo general)
+- **ERROR previo**: `ENOENT` no encontraba ejecutable `tree-sitter` → resuelto tras instalar CLI
 
 ## Instalar / actualizar parsers
 
