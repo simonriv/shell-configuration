@@ -20,8 +20,8 @@ El orden en `~/.zshrc` **importa**. Cargar en el orden incorrecto rompe completa
  9. Alias
 10. Starship: eval "$(starship init zsh)"
 11. zsh-syntax-highlighting                  ← AL FINAL de los plugins
-12. Arranque automático de tmux
-13. Variables de la base de conocimiento (KB_ROOT)
+12. Variables de la base de conocimiento (KB_ROOT)
+13. Arranque automático de tmux              ← ÚLTIMO bloque
 ```
 
 ## Archivo actual
@@ -87,13 +87,13 @@ eval "$(starship init zsh)"
 # Syntax highlighting: siempre al final
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# Knowledge system vault (~/kb/_system/README.md)
+export KB_ROOT="$HOME/kb"
+
 # Iniciar tmux automáticamente en terminales interactivas
 if [[ -o interactive && -z "$TMUX" && -z "$SSH_CONNECTION" ]]; then
   tmux new-session -A -s main
 fi
-
-# Knowledge system vault
-export KB_ROOT="$HOME/kb"
 ```
 
 ## Detalles de cada bloque
@@ -150,7 +150,7 @@ fi
 
 Consecuencia: todas las ventanas, tabs y divisiones de Ghostty comparten la sesión `main`. Para una sesión aparte: `tmux new -s otra`.
 
-> ⚠️ **El código que va después de este bloque** (como `export KB_ROOT=...`) solo se ejecuta en la shell externa **cuando sales de tmux**. Dentro de tmux sí se carga, porque cada panel vuelve a leer `.zshrc`. Si un `export` tiene que estar disponible también en el servidor de tmux (por ejemplo, para `run-shell`), muévelo encima del bloque.
+> ⚠️ **Este bloque va al final de `.zshrc`.** Lo que esté después solo se ejecuta en la shell externa **cuando sales de tmux**, y el servidor de tmux hereda el entorno de esa shell al arrancar. Por eso los `export` (como `KB_ROOT`) van encima: así también los ven el servidor de tmux y sus `run-shell`.
 
 ### PATH y herramientas propias de esta máquina
 

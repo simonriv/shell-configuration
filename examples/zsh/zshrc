@@ -57,10 +57,10 @@ eval "$(starship init zsh)"
 # Syntax highlighting: siempre al final
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# Knowledge system vault (~/kb/_system/README.md)
+export KB_ROOT="$HOME/kb"
+
 # Iniciar tmux automáticamente en terminales interactivas
 if [[ -o interactive && -z "$TMUX" && -z "$SSH_CONNECTION" ]]; then
   tmux new-session -A -s main
 fi
-
-# Knowledge system vault (~/kb/_system/README.md)
-export KB_ROOT="$HOME/kb"

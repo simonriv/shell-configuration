@@ -16,11 +16,10 @@
 
 - [ ] Habilitar `vtsls`, `eslint`, `tailwindcss` y `jsonls` en `lua/configs/lspconfig.lua` (ya están instalados en Mason)
 - [ ] Mostrar o no `fastfetch` al iniciar (con el arranque automático de tmux hay que colocarlo con cuidado; ver [03-utilidades-terminal/04](../03-utilidades-terminal/04-fastfetch.md))
-- [ ] Mostrar el icono de rama en Starship (`[git_branch]` no incluye `$symbol` en su `format`)
-- [ ] Mover `export KB_ROOT` encima del bloque de arranque de tmux en `.zshrc`
 
 ## Respaldos
 
+- [x] Respaldos `~/.zshrc.bak.20261109-102410` y `~/.config/starship.toml.bak.20261109-102410` (antes de mover `KB_ROOT` y del icono de rama)
 - [ ] No hay respaldos fechados de `.tmux.conf`, `nvim`, Ghostty ni `~/.config/backups/zsh/`. Crear uno antes del próximo cambio (ver [07-mantenimiento/01](../07-mantenimiento/01-respaldos.md))
 
 ## Cómo volver a verificar

@@ -36,7 +36,7 @@
 - [x] Orden de carga documentado en [02-zsh/04](../02-zsh/04-configuracion-zshrc.md), igual al archivo real
 - [x] `bindkey '^I' expand-or-complete` tras `fzf --zsh`: Tab con completado nativo; `Ctrl+R`/`Ctrl+T`/`Alt+C` siguen con fzf
 - [x] Secretos en `~/.zsh_secrets` (permisos 600), cargados desde `.zshrc`
-- [x] Arranque automático de tmux en la sesión `main`
+- [x] `export KB_ROOT` antes del bloque de tmux; arranque automático de tmux en la sesión `main` como último bloque
 - [x] Alias de eza con iconos y `cleanup` → `ncdu`
 - [x] Plugins: **zsh-completions**, **zsh-autosuggestions**, **zsh-syntax-highlighting** (Homebrew)
 - [x] **Decisión explícita**: NO instalar `zsh-autocomplete`
@@ -44,6 +44,7 @@
 ## Starship
 
 - [x] Preset **Jetpack** como base, con iconos Nerd Font en lenguajes, herramientas, batería y memoria
+- [x] Icono de rama visible (`$symbol` en el `format` de `[git_branch]`)
 - [x] `starship print-config` sin errores
 
 ## tmux

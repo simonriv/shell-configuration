@@ -34,7 +34,8 @@
 │  6. alias                                           │
 │  7. starship init (prompt)                          │
 │  8. zsh-syntax-highlighting (¡AL FINAL!)            │
-│  9. arranque automático de tmux                     │
+│  9. exports finales (KB_ROOT)                       │
+│ 10. arranque automático de tmux (último)            │
 └─────────────────────────────────────────────────────┘
 ```
 

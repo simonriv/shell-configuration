@@ -27,11 +27,12 @@ Sobre esa base se hicieron las personalizaciones de la sección siguiente. La co
 | **Iconos Nerd Font** | Los símbolos geométricos del preset (`◫`, `⊃`, `∩`…) se sustituyeron por iconos Nerd Font en lenguajes (node, bun, deno, lua, python, ruby, rust, swift, go, java…), herramientas (docker, aws, conda…), batería, memoria y `nix_shell` |
 | **Formato de lenguajes** | `" [$symbol](italic)[$version]($style)"`: icono + versión, sin la etiqueta de texto (`node`, `py`, `rs`…) del preset |
 | **Directorio** | `truncation_symbol = "…/"` y candado Nerd Font en `read_only` |
+| **Rama de git** | `format = " [$symbol$branch(:$remote_branch)]($style)"` para mostrar el icono Nerd Font delante del nombre |
 | **`right_format`** | Empieza con `\` para que no haya salto de línea al principio del bloque derecho |
 
 > **Requisito:** una Nerd Font en la terminal. En Ghostty está `font-family = JetBrainsMono Nerd Font` (cask `font-jetbrains-mono-nerd-font`). Sin ella los iconos se ven como cuadros.
 
-> **Nota:** `[git_branch]` define `symbol`, pero su `format` no incluye `$symbol`, así que el icono de rama **no se muestra**. Para verlo, cambia el formato a `" [$symbol$branch(:$remote_branch)]($style)"`.
+> **Nota:** `ignore_branches = ["main", "master"]` oculta la rama cuando estás en `main` o `master`; el icono y el nombre solo aparecen en otras ramas.
 
 ## Estructura del prompt
 
