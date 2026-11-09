@@ -19,7 +19,6 @@
 
 ## Respaldos
 
-- [x] Respaldos `~/.zshrc.bak.20261109-102410` y `~/.config/starship.toml.bak.20261109-102410` (antes de mover `KB_ROOT` y del icono de rama)
 - [ ] No hay respaldos fechados de `.tmux.conf`, `nvim`, Ghostty ni `~/.config/backups/zsh/`. Crear uno antes del próximo cambio (ver [07-mantenimiento/01](../07-mantenimiento/01-respaldos.md))
 
 ## Cómo volver a verificar
